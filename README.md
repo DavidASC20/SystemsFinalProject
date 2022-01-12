@@ -9,9 +9,9 @@ We are creating a turn-based strategy game that involves raising troops and capt
 Currently, there are 3 different parts of the game.
 
 <ul>
-  <il>Amassing Troops</il>
-  <il>Fighting</il>
-  <il>Fortifying</il>
+  <li>Amassing Troops</li>
+  <li>Fighting</li>
+  <li>Fortifying</li>
 </ul>
 
 
