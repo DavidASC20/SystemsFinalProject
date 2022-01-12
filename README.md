@@ -1,5 +1,3 @@
-
-
 # Risk Strategy Game (Systems Final Project)
 By Flora Au, David Chong, and Kirsten Szeto -- PD 5
 Risk is a complex board game produced by Hasbro that involves both luck and skill. The goal is simple: take over the world.  (Taken from Google)
@@ -9,7 +7,7 @@ We are creating a turn-based strategy game that involves raising troops and capt
 
 ## Basic Rundown
 
-Users will connect to a server, and once enough users have connected/all users vote to start the game, the game will commence. 
+Users will connect to a server, and once enough users have connected/all users vote to start the game, the game will commence.
 
 Each player will start with a set amount of troops, and can place them on the map that we will create.  The end goal of the game is to own all the locations in the map(most likely in a grid format).
 
@@ -43,5 +41,23 @@ This is also up for discussion, as we want a well balanced game
 
 At the end of each turn, players can move any amt of troops from a single territopry they own into an adjacent territory that they also own.  
 
+## How it will involve class concepts
 
+- All players will connect to a common server
+- Server will push out identical boards to each user through pipes
+- Players will have to send requests back to the server for their turn (Ex: Attack request with location, troop usage, + other stats)
+- Each user's data will be malloced so that after each turn the data is not lost
+- Will use signals for turn termination.
+- Card features will require storage + file work (an additional feature to be implemented)
 
+## Who is responsible for which parts
+
+We will be working together at Dojo to make a working board and a one player version first since this is pretty involved. Multplayer implementation work will be redistributed when we get to that stage. (Will update README accordingly)
+
+## Data Structures and Algorithms
+
+We will be using structs for different action requests (Ex: Attack struct will have troop distribution counter, location string etc...)
+
+Different players will also have their respective stats stored in player structs
+
+(Still working on researching helpful algorithms)
