@@ -6,3 +6,12 @@ Risk is a complex board game produced by Hasbro that involves both luck and skil
 
 We are creating a turn-based strategy game that involves raising troops and capturing territory.  
 
+Currently, there are 3 different parts of the game.
+
+<ul>
+  <il>Amassing Troops</il>
+  <il>Fighting</il>
+  <il>Fortifying</il>
+</ul>
+
+
