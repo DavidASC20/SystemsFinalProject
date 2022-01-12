@@ -61,3 +61,16 @@ We will be using structs for different action requests (Ex: Attack struct will h
 Different players will also have their respective stats stored in player structs
 
 (Still working on researching helpful algorithms)
+
+## Timeline
+
+Display Board with general server connection capabilities by 1/16/22
+
+Users are able to send turn based action requests(ie attack or fortify) to the server by 1/19/22
+
+Additional features like having a GUI instead of typing in the commands might be implemented by 1/23/22, which we are assuming is the due date.
+
+
+
+
+
