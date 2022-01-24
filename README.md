@@ -1,66 +1,42 @@
 # Risk Strategy Game (Systems Final Project)
 By Flora Au, David Chong, and Kirsten Szeto -- PD 5
+
 Risk is a complex board game produced by Hasbro that involves both luck and skill. The goal is simple: take over the world.  (Taken from Google)
 
-We are creating a turn-based strategy game that involves raising troops and capturing territory.  
+We are creating a turn-based strategy game based off this idea that involves capturing territory.  
 
 
 ## Basic Rundown
 
-Users will connect to a server, and once enough users have connected/all users vote to start the game, the game will commence.
+Two users will connect to a server, and the game will commence.
 
-Each player will start with a set amount of troops, and can place them on the map that we will create.  The end goal of the game is to own all the locations in the map(most likely in a grid format).
+Each player will start in a corner, and can capture territory adjacent to their owned squares.  The end goal of the game is to own all the locations in the map(or more likely just more than half of the board).
 
-With
-Currently, there are 3 different parts of the game.
+## How the game works
 
-<ul>
-  <li>Placing New Armies</li>
-  <li>Fighting</li>
-  <li>Fortifying</li>
-</ul>
+Each user starts in a corner, and can capture squares adjacent to their owned squares.  Once they decide on a target color, they will switch all of their owned squares to that color, and all of the unowned squares with that color adjacent to an owned block will be claimed.  
 
-Below will be a more in-depth look at each phase
-
-## Placing New Armies
-
-The amount added to your total count would be based off of a number of factors that are up for discussion
-
-We can also points for different territories on the map(think continent based)
-
-We might also implement cards?  Also up for discussion
-
-
-## Fighting
-
-Fighting will be based off the amount of troops at a square, and look at both attacking and defending amounts.
-
-This is also up for discussion, as we want a well balanced game
-
-## Fortifying
-
-At the end of each turn, players can move any amt of troops from a single territopry they own into an adjacent territory that they also own.  
+There are certain restrictions, as you cannot change to the color you are currently, and you cannot change to your opponents color.  There are 6 in total, which usually leaves 4 colors to change to. 
 
 ## How it will involve class concepts
 
 - All players will connect to a common server
 - Server will push out identical boards to each user through pipes
-- Players will have to send requests back to the server for their turn (Ex: Attack request with location, troop usage, + other stats)
+- Players will have to send requests back to the server for their turn
 - Each user's data will be malloced so that after each turn the data is not lost
 - Will use signals for turn termination.
-- Card features will require storage + file work (an additional feature to be implemented)
 
 ## Who is responsible for which parts
 
-We will be working together at Dojo to make a working board and a one player version first since this is pretty involved. Multplayer implementation work will be redistributed when we get to that stage. (Will update README accordingly)
+Flora - Server and pipes
+Kirsten - Graphical Interfacxe
+David - Game design
 
 ## Data Structures and Algorithms
 
-We will be using structs for different action requests (Ex: Attack struct will have troop distribution counter, location string etc...)
+We will be using structs for each individual portion
 
 Different players will also have their respective stats stored in player structs
-
-(Still working on researching helpful algorithms)
 
 ## Timeline
 
