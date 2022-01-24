@@ -29,7 +29,9 @@ There are certain restrictions, as you cannot change to the color you are curren
 ## Who is responsible for which parts
 
 Flora - Server and pipes
-Kirsten - Graphical Interfacxe
+
+Kirsten - Graphical Interface
+
 David - Game design
 
 ## Data Structures and Algorithms
