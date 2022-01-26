@@ -23,7 +23,7 @@
 int server_setup();
 int server_connect(int from_client);
 
-int client_handshake();
+int client_handshake(char * ip);
 void writeint(int fd, int x);
 
 #endif

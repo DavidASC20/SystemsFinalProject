@@ -12,7 +12,6 @@ int main() {
     clients[0] = server_connect(sd);
     clients[1] = server_connect(sd);
 
-    char line[1000];
     int f = fork();
     if(f) {
       close(clients[0]);
@@ -32,7 +31,6 @@ int main() {
         writeint(clients[i], i);  // send clients index
         write(clients[i], board, 7*8*sizeof(int));
       }
-    //  board[6][0] and board[0][7]
 
       // 2nd phase - playing game
       int turn = 0;
@@ -48,6 +46,9 @@ int main() {
       }
       territory[0][6][0] = 1;
       territory[1][0][7] = 1;
+      int count[2];
+      count[0] = 1;
+      count[1] = 1;
       while(1) {
         read(clients[turn], &color, sizeof(int));
 
@@ -67,14 +68,49 @@ int main() {
                 if(j > 0 && territory[turn][i][j-1]) territory[turn][i][j] = 1;
                 if(j < 7 && territory[turn][i][j+1]) territory[turn][i][j] = 1;
 
-                if(territory[turn][i][j]) cont = 1;
+                if(territory[turn][i][j]){
+                  cont = 1;
+                  count[turn]++;
+                }
             }
           }
         }
 
+
+
+        if(count[turn] > 28){
+          break;
+        }else if(count[0] == 28 && count[1] == 28){
+          break;
+        }
+
+
+
+        if(turn == 0){
+          turn = 1;
+        }else{
+          turn = 0;
+        }
+        writeint(clients[0], 0);
+        write(clients[0], board, 7*8*sizeof(int));
+        writeint(clients[1], 0);
+        write(clients[1], board, 7*8*sizeof(int));
       }
       // 3rd phase - send who won, etc.
-
+        writeint(clients[0], 1);
+        write(clients[0], board, 7*8*sizeof(int));
+        writeint(clients[1], 1);
+        write(clients[1], board, 7*8*sizeof(int));
+      if(count[0] > 28){
+        writeint(clients[0], 1);
+        writeint(clients[1], -1);
+      }else if(count[1] > 28){
+        writeint(clients[0], -1);
+        writeint(clients[1], 1);
+      }else{
+        writeint(clients[0], 0);
+        writeint(clients[1], 0);
+      }
       exit(0);
     }
   }

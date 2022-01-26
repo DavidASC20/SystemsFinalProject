@@ -4,10 +4,11 @@
 int main() {
 
   int socket;
-
-  socket = client_handshake();
-
-  while(1) {
+  printf("Enter ip: ");
+  char ip[1000];
+  fgets(ip, sizeof(ip), stdin);
+  socket = client_handshake(ip);
+  while(1) {      //while boardstate == 0 , see what server is doing and mimic on the other end
 
       printf("Enter input: ");
       char line[1000];

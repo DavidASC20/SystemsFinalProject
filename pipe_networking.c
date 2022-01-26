@@ -51,13 +51,13 @@ int server_connect(int from_client) {
   Sets *to_server to the file descriptor for the upstream pipe.
   returns the file descriptor for the downstream pipe.
   =========================*/
-int client_handshake() {
+int client_handshake(char * ip) {
   struct addrinfo * hints, * results;
   hints = calloc(1,sizeof(struct addrinfo));
   hints->ai_family = AF_INET;
   hints->ai_socktype = SOCK_STREAM;
   hints->ai_flags = AI_PASSIVE;
-  getaddrinfo("127.0.0.1", "9845", hints, &results);
+  getaddrinfo(ip, "9845", hints, &results);
 
   int sd = socket(results->ai_family, results->ai_socktype, results->ai_protocol);
 
