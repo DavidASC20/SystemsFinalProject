@@ -1,8 +1,8 @@
-all: client server output
+all: client server
 
 
 client: basic_client.o pipe_networking.o
-	gcc -o client basic_client.o pipe_networking.o
+	gcc -o client basic_client.o pipe_networking.o -lncurses
 
 server: basic_server.o pipe_networking.o
 	gcc -o server basic_server.o pipe_networking.o
@@ -15,12 +15,6 @@ basic_server.o: basic_server.c pipe_networking.h
 
 pipe_networking.o: pipe_networking.c pipe_networking.h
 	gcc -c pipe_networking.c
-	
-output: ncursesdemo.o
-	 gcc -o output ncursesdemo.o -lncurses
-
-ncursesdemo.o: ncursesdemo.c
-	gcc -c ncursesdemo.c -lncurses
 
 
 clean:

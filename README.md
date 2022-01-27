@@ -16,12 +16,17 @@ Each player will start in a corner, and can capture territory adjacent to their 
 
 Each user starts in a corner, and can capture squares adjacent to their owned squares.  Once they decide on a target color, they will switch all of their owned squares to that color, and all of the unowned squares with that color adjacent to an owned block will be claimed.  
 
-There are certain restrictions, as you cannot change to the color you are currently, and you cannot change to your opponents color.  There are 6 in total, which usually leaves 4 colors to change to. 
+There are certain restrictions, as you cannot change to the color you are currently, and you cannot change to your opponents color.  There are 6 in total, which usually leaves 4 colors to change to.
 
+### How to Maneuver
+
+ Users can use the arrow keys to move among potential colors or 'A' and 'D'
+ 
+ To confirm color selection, click the enter key after the arrow points to the desired color.
 ## How it will involve class concepts
 
 - All players will connect to a common server
-- Server will push out identical boards to each user through pipes
+- Server will push out identical boards to each user through pipes/sockets
 - Players will have to send requests back to the server for their turn
 - Each user's data will be malloced so that after each turn the data is not lost
 - Will use signals for turn termination.
@@ -47,8 +52,3 @@ Display Board with general server connection capabilities by 1/16/22
 Users are able to send turn based action requests(ie attack or fortify) to the server by 1/19/22
 
 Additional features like having a GUI instead of typing in the commands might be implemented by 1/23/22, which we are assuming is the due date.
-
-
-
-
-

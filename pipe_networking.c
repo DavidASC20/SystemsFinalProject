@@ -14,7 +14,7 @@ int server_setup() {
   hints->ai_family = AF_INET;
   hints->ai_socktype = SOCK_STREAM;
   hints->ai_flags = AI_PASSIVE;
-  getaddrinfo(NULL, "9845", hints, &results);
+  getaddrinfo(NULL, "25882", hints, &results);
 
   int sd = socket(results->ai_family, results->ai_socktype, results->ai_protocol);
 
@@ -57,7 +57,7 @@ int client_handshake(char * ip) {
   hints->ai_family = AF_INET;
   hints->ai_socktype = SOCK_STREAM;
   hints->ai_flags = AI_PASSIVE;
-  getaddrinfo(ip, "9845", hints, &results);
+  getaddrinfo(ip, "25882", hints, &results);
 
   int sd = socket(results->ai_family, results->ai_socktype, results->ai_protocol);
 
